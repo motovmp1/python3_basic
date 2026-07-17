@@ -1,0 +1,20 @@
+git switch dev
+↓
+editar código
+↓
+git add .
+git commit -m "Nova funcionalidade"
+git push
+↓
+gh pr create --base main --head dev
+↓
+Revisar a PR
+↓
+Merge
+↓
+git switch main
+git pull
+↓
+git switch dev
+git merge main
+git push
