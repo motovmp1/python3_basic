@@ -67,6 +67,11 @@ def main() -> int:
     if executar_git("rev-parse", "--verify", referencia).returncode != 0:
         return bloquear(f"a referencia {referencia} nao foi encontrada.")
 
+    hash_local = executar_git("rev-parse", "HEAD").stdout.strip()
+    hash_main = executar_git("rev-parse", referencia).stdout.strip()
+    print(f"Hash local: {hash_local}")
+    print(f"Hash {referencia}: {hash_main}")
+
     # Compara arquivos rastreados (commitados, preparados ou modificados).
     diferencas = executar_git("diff", "--name-status", referencia, "--")
     if diferencas.returncode != 0:
